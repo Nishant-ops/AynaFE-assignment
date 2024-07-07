@@ -55,7 +55,9 @@ export default function ChatPage() {
     });
   }, [ws]);
   function connectToSocket() {
-    const socket = io.connect("http://localhost:1337");
+    const socket = io.connect(
+      "https://exciting-purpose-518385d87d.strapiapp.com/"
+    );
     setWs(socket);
   }
   async function fetchRooms() {
