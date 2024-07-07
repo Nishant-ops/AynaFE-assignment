@@ -41,6 +41,11 @@ export default function ChatPage() {
   useEffect(() => {
     fetchRooms();
     connectToSocket();
+    return () => {
+      if (ws) {
+        ws.close();
+      }
+    };
   }, [navigate]);
   useEffect(() => {
     if (!ws) return;
