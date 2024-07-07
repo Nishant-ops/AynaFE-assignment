@@ -55,9 +55,12 @@ export default function ChatPage() {
     });
   }, [ws]);
   function connectToSocket() {
-    const socket = io.connect(
-      "https://exciting-purpose-518385d87d.strapiapp.com/"
-    );
+    const socket = io("https://exciting-purpose-518385d87d.strapiapp.com/", {
+      withCredentials: true,
+      extraHeaders: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    });
     setWs(socket);
   }
   async function fetchRooms() {
