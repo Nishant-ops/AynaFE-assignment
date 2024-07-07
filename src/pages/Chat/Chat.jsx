@@ -23,6 +23,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { listRooms, listMessages, createRoom } from "../../api/chat";
 import { ChatDrawer } from "../../Components/ChatDrawer";
+import "./Chat.css";
 
 export default function ChatPage() {
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -129,7 +130,7 @@ export default function ChatPage() {
         }}
       >
         {isMobile && (
-          <AppBar position="static">
+          <AppBar position="static" sx={{ zIndex: "99" }}>
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -142,7 +143,7 @@ export default function ChatPage() {
               </IconButton>
 
               {username && (
-                <Typography variant="body1" sx={{ ml: 2 }}>
+                <Typography variant="body1" sx={{ ml: 1 }}>
                   {username}
                 </Typography>
               )}
@@ -180,34 +181,39 @@ export default function ChatPage() {
               justifyContent: "space-between",
             }}
           >
-            <Box
-              sx={{
-                flexGrow: 1,
-                p: 2,
-                overflowY: "auto",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              {chat &&
-                chat.map((chat) => (
-                  <Box
-                    key={chat.id}
-                    sx={{
-                      alignSelf:
-                        chat.sender_type === "USER" ? "flex-end" : "flex-start",
-                      bgcolor:
-                        chat.sender_type === "USER" ? "forestgreen" : "snow",
-                      color: "#000000",
-                      p: 1,
-                      borderRadius: 3,
-                      maxWidth: "60%",
-                      mb: 1,
-                    }}
-                  >
-                    {chat.content}
-                  </Box>
-                ))}
+            <Box className={"MessageList"}>
+              <Box
+                className="MessageListContainer"
+                sx={{
+                  flexGrow: 1,
+                  p: 2,
+                  overflowY: "auto",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {chat &&
+                  chat.map((chat) => (
+                    <Box
+                      key={chat.id}
+                      sx={{
+                        alignSelf:
+                          chat.sender_type === "USER"
+                            ? "flex-end"
+                            : "flex-start",
+                        bgcolor:
+                          chat.sender_type === "USER" ? "forestgreen" : "snow",
+                        color: "#000000",
+                        p: 1,
+                        borderRadius: 3,
+                        maxWidth: "60%",
+                        mb: 1,
+                      }}
+                    >
+                      {chat.content}
+                    </Box>
+                  ))}
+              </Box>
             </Box>
             {selectedRoom && (
               <Box

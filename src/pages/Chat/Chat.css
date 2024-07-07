@@ -27,3 +27,22 @@
   border-top: 1px;
   border-color: divider;
 }
+.MessageListContainer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+.MessageList {
+  row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  position: relative;
+}
+::-webkit-scrollbar {
+  display: none;
+}
