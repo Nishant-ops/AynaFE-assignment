@@ -104,7 +104,7 @@ export default function ChatPage() {
   };
 
   return (
-    <Container component="main" maxWidth="lg">
+    <Container component="main" maxWidth="lg" sx={{ padding: "0px" }}>
       <CssBaseline />
       <Box
         sx={{
@@ -127,14 +127,7 @@ export default function ChatPage() {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" noWrap component="div">
-                Chat Rooms
-              </Typography>
-              <Avatar
-                alt="Logo"
-                src="https://getayna.com/images/icon.svg"
-                sx={{ ml: "auto" }}
-              />
+
               {username && (
                 <Typography variant="body1" sx={{ ml: 2 }}>
                   {username}
@@ -191,7 +184,7 @@ export default function ChatPage() {
                       alignSelf:
                         chat.sender_type === "USER" ? "flex-end" : "flex-start",
                       bgcolor:
-                        chat.sender_type === "USER" ? "#E0DFD5" : "#F09D51",
+                        chat.sender_type === "USER" ? "forestgreen" : "snow",
                       color: "#000000",
                       p: 1,
                       borderRadius: 3,

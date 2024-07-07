@@ -1,0 +1,29 @@
+.chatMainContainer {
+  padding: 0px;
+}
+.mobileAppBarWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.MessageListitem {
+  color: "#000000";
+  padding: 1px;
+  border-radius: 3px;
+  max-width: 60%;
+  margin-bottom: 1px;
+}
+.MessageWrapper {
+  flex-grow: 1px;
+  padding: 2px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.MessageInputWrapper {
+  display: flex;
+  padding: 2px;
+  border-top: 1px;
+  border-color: divider;
+}
