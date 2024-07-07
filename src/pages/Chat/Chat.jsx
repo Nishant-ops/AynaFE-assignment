@@ -111,9 +111,9 @@ export default function ChatPage() {
   };
 
   const handleRoomSelect = async (room) => {
+    fetchMessages(room.id);
     setSelectedRoom(room);
     setDrawerOpen(false); // Close drawer on mobile after selecting a room
-    fetchMessages(room.id);
   };
 
   return (
